@@ -47,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: "Strategies Flow DEV",
+      title: "Strategies Flow",
       template: path.resolve(__dirname, "..", "public", "index.html"),
     }),
   ],
