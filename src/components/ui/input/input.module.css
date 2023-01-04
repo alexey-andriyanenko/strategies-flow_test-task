@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  gap: 4px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--palette-text-secondary);
+}
+
+.input {
+  padding: 8px 16px;
+  border: 1px solid var(--palette-text-secondary);
+  border-radius: 2px;
+}
+
+.input:focus {
+  border: 1px solid var(--palette-text-primary);
+  outline: none;
+}

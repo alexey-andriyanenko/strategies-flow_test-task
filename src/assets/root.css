@@ -1,0 +1,11 @@
+:root {
+  --palette-base: #ffffff;
+  --palette-disabled: #a7adc4;
+  --palette-primary: #0099a1;
+  --palette-primary-hover: #00cac4;
+  --palette-error: #ff3d3d;
+  --palette-error-hover: #df1c1c;
+
+  --palette-text-primary: var(--palette-primary);
+  --palette-text-secondary: #363e5c;
+}

@@ -11,7 +11,12 @@ module.exports = {
   },
   devServer: {
     port: 9000,
-    open: true,
+    open: false,
+    historyApiFallback: true,
+  },
+  resolve: {
+    extensions: [".js", ".ts", ".tsx", ".css"],
+    modules: ["node_modules", "src"],
   },
   module: {
     rules: [
@@ -27,17 +32,19 @@ module.exports = {
             loader: "css-loader",
             options: {
               importLoaders: 1,
-              module: true,
-            }
-          }
-        ]
-      }
-    ]
+              modules: {
+                localIdentName: "[name]__[local]",
+              },
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HTMLWebpackPlugin({
       title: "Strategies Flow DEV",
-      template: path.resolve(__dirname, "..", "public", "index.html")
+      template: path.resolve(__dirname, "..", "public", "index.html"),
     }),
-  ]
+  ],
 };

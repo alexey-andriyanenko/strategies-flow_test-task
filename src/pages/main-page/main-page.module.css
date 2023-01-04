@@ -1,0 +1,35 @@
+.nav {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.nav button {
+  max-width: 200px;
+}
+
+.list {
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  border-bottom: 1px solid var(--palette-primary);
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.name {
+  font-size: 18px;
+}
+
+.capital {
+  font-size: 20px;
+  font-weight: bold;
+}

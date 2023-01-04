@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--palette-primary-hover);
+}
+
+

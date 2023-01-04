@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "lib": ["dom"],
+    "lib": ["dom", "esnext"],
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react",
     "strict": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "src"
   },
   "include": ["src"],
-  "exclude": ["src/index.js"]
 }
