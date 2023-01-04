@@ -16,6 +16,7 @@ export const strategiesReducer = (
       return {
         ...state,
         list: [...state.list, payload],
+        selectedStrategy: null,
       };
     }
     case StrategiesActionTypes.REMOVE_STRATEGY: {
