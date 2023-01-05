@@ -1,10 +1,11 @@
-import React, { memo, useMemo, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { memo, useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import { getStrategies } from "api";
 import { Input, PageContainer } from "components";
 import { StrategyType } from "models";
-import { selectStrategy } from "store";
+import { loadStrategiesToSelect, ReducersType, selectStrategy, StrategiesStateType } from "store";
 import { CreateStrategyPageRoute } from "routes";
 import { getMockStrategiesToSelect } from "./select-strategy-page.utils";
 
@@ -13,10 +14,20 @@ import styles from "./select-strategy-page.module.css";
 export const SelectStrategyPage: React.FC = memo(() => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const strategies = useSelector<ReducersType, StrategiesStateType>(({ strategies }) => strategies);
 
   const [search, setSearch] = useState("");
 
-  const list = useMemo(() => getMockStrategiesToSelect(), []);
+  useEffect(() => {
+    async function effect() {
+      const data = await getStrategies();
+      if (!data) {
+        dispatch(loadStrategiesToSelect(getMockStrategiesToSelect()));
+      }
+    }
+
+    effect();
+  }, []);
 
   const handleSelect = (strategy: StrategyType) => {
     dispatch(selectStrategy(strategy));
@@ -30,7 +41,7 @@ export const SelectStrategyPage: React.FC = memo(() => {
       </div>
 
       <div className={styles.list}>
-        {list
+        {strategies.listToSelect
           .filter(({ name }) => name.toLowerCase().includes(search.toLowerCase()))
           .map((strategy) => (
             <div
